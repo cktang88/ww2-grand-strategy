@@ -1,0 +1,89 @@
+
+> ww2-grand-strategy@0.0.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v5.4.21  ready in 337 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+7:07:16 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:08:11 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:08:15 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:08:22 PM [vite] hmr update /src/features/game/TerritoryPanel.tsx, /src/index.css
+7:10:52 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:11:42 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:11:42 PM [vite] Internal server error: /Users/apache/github/ww2-grand-strategy/src/features/game/GameMap.tsx: Expected corresponding JSX closing tag for <ZoomableGroup>. (177:6)
+
+  175 |           }
+  176 |         </Geographies>
+> 177 |       </ComposableMap>
+      |       ^
+  178 |     </div>
+  179 |   )
+  180 | }
+  Plugin: vite:react-babel
+  File: /Users/apache/github/ww2-grand-strategy/src/features/game/GameMap.tsx:177:6
+  175|            }
+  176|          </Geographies>
+  177|        </ComposableMap>
+     |        ^
+  178|      </div>
+  179|    )
+      at constructor (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:367:19)
+      at TypeScriptParserMixin.raise (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:6624:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:4756:16)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:4727:32)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:4727:32)
+      at TypeScriptParserMixin.jsxParseElement (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:4778:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:4788:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9828:39
+      at TypeScriptParserMixin.tryParse (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:6932:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9828:18)
+      at /Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10864:39
+      at TypeScriptParserMixin.allowInAnd (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12500:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10864:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12567:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11747:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11395:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:4793:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11145:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11130:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:11110:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9890:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10963:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10968:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10945:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10895:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9839:20)
+      at TypeScriptParserMixin.parseExpressionBase (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10844:39
+      at TypeScriptParserMixin.allowInAnd (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12495:16)
+      at TypeScriptParserMixin.parseExpression (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:10844:17)
+      at TypeScriptParserMixin.parseReturnStatement (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:13218:28)
+      at TypeScriptParserMixin.parseStatementContent (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12874:21)
+      at TypeScriptParserMixin.parseStatementContent (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9569:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12843:17)
+      at TypeScriptParserMixin.parseStatementListItem (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12823:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:13392:61)
+      at TypeScriptParserMixin.parseBlockBody (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:13385:10)
+      at TypeScriptParserMixin.parseBlock (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:13373:10)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12174:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:12160:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (/Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:9223:18)
+      at /Users/apache/github/ww2-grand-strategy/node_modules/@babel/parser/lib/index.js:13521:12
+7:11:47 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:12:14 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:12:22 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:12:27 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:12:34 PM [vite] hmr update /src/features/game/TerritoryPanel.tsx, /src/index.css
+7:13:11 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
