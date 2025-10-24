@@ -51,6 +51,14 @@ export interface Nation {
   }
 }
 
+// Pending troop movement
+export interface TroopMove {
+  id: string // unique identifier for this move
+  from: string // source territory ID
+  to: string // destination territory ID
+  troops: number // number of troops to move
+}
+
 // Main game state
 export interface GameState {
   currentPhase: GamePhase
@@ -61,6 +69,7 @@ export interface GameState {
   territories: Record<string, Territory> // keyed by territory ID
 
   selectedTerritoryId: string | null // for UI
+  pendingMoves: TroopMove[] // moves queued during COMBAT_MOVE/NONCOMBAT_MOVE
 }
 
 // State machine transitions

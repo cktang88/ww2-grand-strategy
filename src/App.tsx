@@ -2,8 +2,18 @@ import { GameMap } from './features/game/GameMap'
 import { PlayerDashboard } from './features/game/PlayerDashboard'
 import { TerritoryPanel } from './features/game/TerritoryPanel'
 import { GameControls } from './features/game/GameControls'
+import { CombatMovePanel } from './features/game/CombatMovePanel'
+import { useGameStore } from './store/gameStore'
+import { GamePhase } from './types/game'
 
 function App() {
+  const currentPhase = useGameStore((state) => state.currentPhase)
+
+  // Show CombatMovePanel during movement phases
+  const showCombatPanel =
+    currentPhase === GamePhase.COMBAT_MOVE ||
+    currentPhase === GamePhase.NONCOMBAT_MOVE
+
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4">
       <header className="mb-4">
@@ -24,9 +34,9 @@ function App() {
           <GameMap />
         </div>
 
-        {/* Right Sidebar - Territory Editor */}
-        <div className="col-span-3 overflow-y-auto">
-          <TerritoryPanel />
+        {/* Right Sidebar - Context Panel */}
+        <div className="col-span-3 overflow-y-auto space-y-4">
+          {showCombatPanel ? <CombatMovePanel /> : <TerritoryPanel />}
         </div>
       </div>
     </div>

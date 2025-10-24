@@ -87,3 +87,21 @@ Port 5173 is in use, trying another one...
 7:12:27 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
 7:12:34 PM [vite] hmr update /src/features/game/TerritoryPanel.tsx, /src/index.css
 7:13:11 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:33:20 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:33:26 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:33:33 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:33:43 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:34:04 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:34:10 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+7:34:38 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:34:42 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:34:51 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:35:04 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:35:51 PM [vite] hmr update /src/App.tsx, /src/index.css
+7:36:05 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:36:19 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+7:36:37 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+10:19:33 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+10:19:48 PM [vite] hmr update /src/features/game/GameMap.tsx, /src/index.css
+10:20:07 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx
+10:20:17 PM [vite] hmr update /src/index.css, /src/features/game/GameControls.tsx, /src/features/game/GameMap.tsx, /src/features/game/TerritoryPanel.tsx, /src/features/game/PlayerDashboard.tsx

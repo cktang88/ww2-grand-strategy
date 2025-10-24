@@ -255,4 +255,5 @@ export const createInitialGameState = (): GameState => ({
   nations: initialNations,
   territories: initialTerritories,
   selectedTerritoryId: null,
+  pendingMoves: [],
 })
