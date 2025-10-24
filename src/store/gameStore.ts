@@ -238,6 +238,7 @@ function executeNonCombatMoves(state: GameState): Partial<GameState> {
 }
 
 // Resolve combat - compare troop counts and determine winners
+// Apply combat effectiveness penalty for undersupplied troops
 function resolveCombat(state: GameState): Partial<GameState> {
   const updatedTerritories = { ...state.territories }
 
@@ -248,30 +249,66 @@ function resolveCombat(state: GameState): Partial<GameState> {
     movesByDestination.set(move.to, [...existing, move])
   })
 
+  // Helper: Calculate effective combat strength based on supply
+  const calculateEffectiveStrength = (troops: number, supply: number): number => {
+    const requiredSupply = troops // Each troop requires 1 supply
+    if (supply >= requiredSupply) {
+      return troops // Fully supplied, full effectiveness
+    }
+    const unsupplied = requiredSupply - supply
+    const supplied = troops - unsupplied
+    // Supplied troops at 100%, unsupplied at 50%
+    return supplied + (unsupplied * 0.5)
+  }
+
   // Resolve each battle
   movesByDestination.forEach((moves, territoryId) => {
     const territory = updatedTerritories[territoryId]
-    const attackingTroops = moves.reduce((sum, move) => sum + move.troops, 0)
-    const defendingTroops = territory.troops
     const attacker = state.territories[moves[0].from].owner // Assumes all attackers are same nation
 
-    console.log(`Battle at ${territory.name}: ${attackingTroops} attackers vs ${defendingTroops} defenders`)
+    // Calculate attacking strength with supply penalty
+    let totalAttackingTroops = 0
+    let totalAttackingStrength = 0
+    moves.forEach((move) => {
+      const originTerritory = state.territories[move.from]
+      const effectiveStrength = calculateEffectiveStrength(move.troops, originTerritory.supply)
+      totalAttackingTroops += move.troops
+      totalAttackingStrength += effectiveStrength
 
-    if (attackingTroops > defendingTroops) {
+      if (effectiveStrength < move.troops) {
+        console.log(`  ${move.troops} troops from ${originTerritory.name} fight at ${effectiveStrength.toFixed(1)} effectiveness (undersupplied)`)
+      }
+    })
+
+    // Calculate defending strength with supply penalty
+    const defendingTroops = territory.troops
+    const defendingStrength = calculateEffectiveStrength(territory.troops, territory.supply)
+
+    if (defendingStrength < defendingTroops) {
+      console.log(`  ${defendingTroops} defenders fight at ${defendingStrength.toFixed(1)} effectiveness (undersupplied)`)
+    }
+
+    console.log(`Battle at ${territory.name}: ${totalAttackingStrength.toFixed(1)} attack strength vs ${defendingStrength.toFixed(1)} defense strength`)
+
+    // Resolve battle using effective strength
+    if (totalAttackingStrength > defendingStrength) {
       // Attackers win
-      const survivors = attackingTroops - defendingTroops
+      const strengthDiff = totalAttackingStrength - defendingStrength
+      // Convert strength back to survivors (proportional to attacking troops)
+      const survivors = Math.floor(strengthDiff * (totalAttackingTroops / totalAttackingStrength))
       updatedTerritories[territoryId] = {
         ...territory,
         owner: attacker,
-        troops: survivors,
+        troops: Math.max(1, survivors), // At least 1 survivor to hold territory
       }
       console.log(`  Attackers win! ${survivors} troops remaining, territory captured`)
-    } else if (defendingTroops > attackingTroops) {
+    } else if (defendingStrength > totalAttackingStrength) {
       // Defenders win
-      const survivors = defendingTroops - attackingTroops
+      const strengthDiff = defendingStrength - totalAttackingStrength
+      const survivors = Math.floor(strengthDiff * (defendingTroops / defendingStrength))
       updatedTerritories[territoryId] = {
         ...territory,
-        troops: survivors,
+        troops: Math.max(0, survivors),
       }
       console.log(`  Defenders win! ${survivors} troops remaining`)
     } else {
@@ -317,31 +354,12 @@ function executeProductionPhase(state: GameState): Partial<GameState> {
   return { nations: updatedNations }
 }
 
-// Consumption Phase: Check if troops are supplied, apply attrition if not
+// Consumption Phase: No attrition - undersupply affects combat effectiveness instead
 function executeConsumptionPhase(state: GameState): Partial<GameState> {
-  const updatedTerritories = { ...state.territories }
-
-  Object.keys(updatedTerritories).forEach((territoryId) => {
-    const territory = updatedTerritories[territoryId]
-
-    // Each troop requires 1 supply (can be adjusted)
-    const requiredSupply = territory.troops
-
-    if (territory.supply < requiredSupply) {
-      // Attrition: unsupplied troops die
-      const unsupplied = requiredSupply - territory.supply
-      const newTroops = Math.max(0, territory.troops - unsupplied)
-
-      updatedTerritories[territoryId] = {
-        ...territory,
-        troops: newTroops,
-      }
-
-      console.log(`${territory.name}: ${unsupplied} troops lost to attrition (${newTroops} remaining)`)
-    }
-  })
-
-  return { territories: updatedTerritories }
+  // Troops no longer die from lack of supply
+  // Instead, undersupplied troops fight at reduced effectiveness (50%) during combat
+  // This is handled in resolveCombat()
+  return {}
 }
 
 // Infrastructure Update: Apply infrastructure investments (simplified - just log for now)
